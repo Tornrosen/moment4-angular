@@ -1,0 +1,40 @@
+table {
+       width: 100%;
+}
+thead {
+    background-color: pink;
+}
+
+th {
+    border-bottom: 2px solid mediumvioletred;
+    border-top: 1px solid mediumvioletred;
+}
+
+th, td {
+   padding: 10px 10px; 
+}
+
+tr {
+    background-color: papayawhip;
+}
+
+#flexCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+}
+
+#btnCon {
+    padding: 1%;
+    column-gap: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    background-color: palevioletred;
+    color: lemonchiffon;
+    padding: 1%;
+}

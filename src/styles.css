@@ -4,7 +4,7 @@ body {
     color:darkred;
     overflow-x: hidden;
     margin: 0 auto; 
-    max-width: 960px;
+    max-width: 1000px;
 }
 
 p, h1, h2, h3 {

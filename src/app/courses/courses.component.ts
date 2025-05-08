@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Course } from '../model/course';
 import { CourseService } from '../services/course.service';
 
@@ -11,6 +11,7 @@ import { CourseService } from '../services/course.service';
 })
 export class CoursesComponent {
  courselist: Course[]=[];
+ error = signal<string|null>(null);
 
  constructor(private courseservice: CourseService){}
 
