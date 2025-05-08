@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: lemonchiffon;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:darkred;
+    overflow-x: hidden;
+    margin: 0 auto; 
+    max-width: 960px;
+}
+
+p, h1, h2, h3 {
+    padding: 1%;
+    text-align: center;
+}

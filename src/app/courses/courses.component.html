@@ -1,0 +1,10 @@
+<h2>Kurser</h2>
+
+<table> 
+    <thead>
+    <tr><th>Kurskod</th><th scope="col">Kursnamn</th><th>Progression</th><th>Länk till kursplan</th></tr> </thead>
+   <tbody><tr *ngFor= "let course of courselist"> <td>{{course.code}} </td>
+    <td> {{course.coursename}} </td>
+    <td> {{course.progression}} </td>
+    <td> {{course.syllabus}} </td></tr></tbody>
+</table>
