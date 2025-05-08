@@ -1,20 +1,24 @@
 <h2>Kurser</h2>
 
 <div id="flexCon"><label>
-    Sök:
-    <input id="searchQuery" type="text" />
+    Filtrera kurser:
+    <input id="filter" type="text" [(ngModel)]="filterValue" (input)="filterCourses()"/>
 </label>
 </div>
 <div id="btnCon">
-    <input type="button" value="Sortera på kurskod" class="btn">
-    <input type="button" value="Sortera på kursnamn" class="btn">
-    <input type="button" value="Sortera på progression" class="btn">
+    <input type="button" value="Sortera på kurskod" class="btn" (click)="sortCodes()">
+    <input type="button" value="Sortera på kursnamn" class="btn" (click)="sortNames()">
+    <input type="button" value="Sortera på progression" class="btn" (click)="sortProgressions()">
 </div>
+
+@if(filteredCourses.length===0){
+    <p>Inga kurser att visa.</p>
+}
 
 <table> 
     <thead>
-    <tr><th>Kurskod</th><th scope="col">Kursnamn</th><th>Progression</th><th>Länk till kursplan</th></tr> </thead>
-   <tbody><tr *ngFor= "let course of courselist"> <td>{{course.code}} </td>
+    <tr><th>Kurskod</th><th>Kursnamn</th><th>Progression</th><th>Länk till kursplan</th></tr> </thead>
+   <tbody><tr *ngFor= "let course of filteredCourses"> <td>{{course.code}} </td>
     <td> {{course.coursename}} </td>
     <td> {{course.progression}} </td>
     <td> {{course.syllabus}} </td></tr></tbody>
