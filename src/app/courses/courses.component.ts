@@ -1,3 +1,4 @@
+//importera nödvändiga moduler, funktionalitet, model och service
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Course } from '../model/course';
@@ -10,43 +11,46 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './courses.component.html',
   styleUrl: './courses.component.css'
 })
+
+//en klass med typning, konstruktor, funktioner för att hämta, läsa ut, filtrera och sortera data
+
 export class CoursesComponent {
- courselist: Course[]=[];
- filteredCourses: Course[]=[];
- filterValue: String="";
+  courselist: Course[] = [];
+  filteredCourses: Course[] = [];
+  filterValue: String = "";
 
- constructor(private courseservice: CourseService){}
+  constructor(private courseservice: CourseService) { }
 
- ngOnInit() {
-  this.courseservice.getCourses().subscribe(data => {
-    this.courselist=data;
-    this.filteredCourses=data;
-  })
- }
+  ngOnInit() {
+    this.courseservice.getCourses().subscribe(data => {
+      this.courselist = data;
+      this.filteredCourses = data;
+    })
+  }
 
-filterCourses():void {
-  try {
-  this.filteredCourses=this.courselist.filter((course) => 
-    course.code.toLowerCase().includes(this.filterValue.toLowerCase())||course.coursename.toLowerCase().includes(this.filterValue.toLowerCase())||course.progression.toLowerCase().includes(this.filterValue.toLowerCase()))
-}
-catch (error) {
-  console.error;
+  filterCourses(): void {
+    try {
+      this.filteredCourses = this.courselist.filter((course) =>
+        course.code.toLowerCase().includes(this.filterValue.toLowerCase()) || course.coursename.toLowerCase().includes(this.filterValue.toLowerCase()) || course.progression.toLowerCase().includes(this.filterValue.toLowerCase()))
+    }
+    catch (error) {
+      console.error;
 
-}
-}
+    }
+  }
 
-sortCodes():void {
-  this.filteredCourses.sort((a, b) => a.code > b.code ? 1 : -1);
+  sortCodes(): void {
+    this.filteredCourses.sort((a, b) => a.code > b.code ? 1 : -1);
 
-}
+  }
 
-sortNames() {
-  this.filteredCourses.sort((a, b) => a.coursename > b.coursename ? 1 : -1);
- 
-}
+  sortNames() {
+    this.filteredCourses.sort((a, b) => a.coursename > b.coursename ? 1 : -1);
 
-sortProgressions() {
-  this.filteredCourses.sort((a, b) => a.progression > b.progression ? 1 : -1);
-  
-}
+  }
+
+  sortProgressions() {
+    this.filteredCourses.sort((a, b) => a.progression > b.progression ? 1 : -1);
+
+  }
 }
